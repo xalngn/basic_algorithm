@@ -1,0 +1,29 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ *
+ * Complexity:
+ * Time complexity: O(nlgn) in best case, O(n^2) in worst case.
+ * Space complexity: O(n)
+ */
+class Solution {
+    public int pathSum(TreeNode root, int sum) {
+        if (null == root) {
+            return 0;
+        }
+        return countPath(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum);
+    }
+    
+    private int countPath(TreeNode root, int sum) {
+        if (null == root) {
+            return 0;
+        }
+        sum -= root.val;
+        return (0 == sum ? 1 : 0) + countPath(root.left, sum) + countPath(root.right, sum);
+    }
+}
