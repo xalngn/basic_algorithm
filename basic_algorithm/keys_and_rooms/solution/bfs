@@ -1,0 +1,25 @@
+class Solution {
+    public boolean canVisitAllRooms(List<List<Integer>> rooms) {
+        boolean[] seen = new boolean[rooms.size()];
+        seen[0] = true;
+        Queue<Integer> queue = new LinkedList<Integer>();
+        queue.offer(0);
+        
+        while (!queue.isEmpty()) {
+            for (int key : rooms.get(queue.poll())) {
+                if (!seen[key]) {
+                    seen[key] = true;
+                    queue.offer(key);
+                }
+            }
+        }
+        
+        for (boolean room : seen) {
+            if (!room) {
+                return false;
+            }
+        }
+        
+        return true;
+    }
+}
