@@ -1,0 +1,14 @@
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        int maxSum1 = 0;
+        int maxSum2 = 0;
+        for (int num : nums) {
+            int temp = maxSum2;
+            maxSum2 = max(maxSum2, num + maxSum1);
+            maxSum1 = temp;
+        }
+        
+        return maxSum2;
+    }
+};
