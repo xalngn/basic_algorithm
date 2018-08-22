@@ -1,0 +1,12 @@
+class Solution:
+    def findLongestChain(self, pairs):
+        """
+        :type pairs: List[List[int]]
+        :rtype: int
+        """
+        length, tail = 0, float('-inf')
+        for x, y in sorted(pairs, key = lambda x : x[1]):
+            if tail < x:
+                length, tail = length + 1, y
+                
+        return length
