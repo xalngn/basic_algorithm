@@ -4,16 +4,15 @@ class Solution:
         :type n: int
         :rtype: int
         """
+        if n < 0:
+            return 0
         if 0 == n:
             return 1
-        if 0 > n:
-            return 0
         
-        cnt = 10
+        cnt, product = 10, 9
+        
         for i in range(2, n + 1):
-            product = 9
-            for j in range(2, i + 1):
-                product *= 11 - j
+            product *= 11 - i
             cnt += product
             
         return cnt
