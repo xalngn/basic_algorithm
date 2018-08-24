@@ -1,0 +1,14 @@
+class Solution:
+    def toLowerCase(self, str):
+        """
+        :type str: str
+        :rtype: str
+        """
+        res, d = '', ord('a') - ord('A')
+        for c in str:
+            if c >= 'A' and c <= 'Z':
+                c = chr(ord(c) + d)
+            res += c
+            
+        return res
+        
