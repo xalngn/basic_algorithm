@@ -1,0 +1,8 @@
+class Solution:
+    def judgeCircle(self, moves):
+        """
+        :type moves: str
+        :rtype: bool
+        """
+        direct = {'R': 1, 'L': -1, 'U': 1j, 'D':- 1j}
+        return 0 == sum(direct[move] for move in moves)
