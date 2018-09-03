@@ -1,0 +1,13 @@
+class Solution:
+    def romanToInt(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        r = {'I':1, 'V':5, 'X':10, 'L':50, 'C':100, 'D':500, 'M':1000}
+        num, p, s = 0, 'I', s[::-1]
+        
+        for c in s:
+            num, p = num - r[c] if r[c] < r[p] else num + r[c], c
+            
+        return num
