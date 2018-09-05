@@ -1,0 +1,8 @@
+class Solution:
+    def firstUniqChar(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        index = [s.index(l) for l in string.ascii_lowercase if 1 == s.count(l)]
+        return min(index) if len(index) > 0 else -1

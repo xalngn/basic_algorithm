@@ -1,0 +1,14 @@
+class Solution:
+    def firstUniqChar(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        letters = [0] * 256
+        for c in s:
+            letters[ord(c)] += 1
+        for i in range(len(s)):
+            if 1 == letters[ord(s[i])]:
+                return i
+            
+        return -1
