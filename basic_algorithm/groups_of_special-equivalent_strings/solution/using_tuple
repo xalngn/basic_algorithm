@@ -1,0 +1,7 @@
+class Solution:
+    def numSpecialEquivGroups(self, A):
+        """
+        :type A: List[str]
+        :rtype: int
+        """
+        return len({tuple(sorted(s[0::2]) + sorted(s[1::2])) for s in A})
