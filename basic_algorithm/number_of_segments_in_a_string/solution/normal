@@ -1,0 +1,12 @@
+class Solution:
+    def countSegments(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        cnt, pre, snew = 0, ' ', s + ' '
+        for c in snew:
+            cnt = cnt + 1 if ' ' != pre and ' ' == c else cnt
+            pre = c
+            
+        return cnt
