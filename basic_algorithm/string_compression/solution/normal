@@ -1,0 +1,18 @@
+class Solution:
+    def compress(self, chars):
+        """
+        :type chars: List[str]
+        :rtype: int
+        """
+        res, cnt, j = 0, 1, 0
+        chars.append(' ')
+        for i in range(len(chars) - 1):
+            if chars[i] != chars[i + 1]:
+                l = 1 + (len(str(cnt)) if cnt > 1 else 0)
+                chars[j:j + l] = chars[i] + (str(cnt) if cnt > 1 else '')
+                res, cnt, j = res + l, 1, j + l
+            else:
+                cnt += 1
+        chars.pop()
+        
+        return res
