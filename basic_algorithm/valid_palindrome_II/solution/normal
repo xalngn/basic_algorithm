@@ -1,0 +1,12 @@
+class Solution:
+    def validPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        l, r = 0, len(s) - 1
+        while l < r and s[l] == s[r]:
+            l, r = l + 1, r - 1
+            
+        one, two = s[l + 1:r + 1], s[l:r]
+        return l >= r or one == one[::-1] or two == two[::-1]
