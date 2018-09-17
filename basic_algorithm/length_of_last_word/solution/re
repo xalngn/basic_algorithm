@@ -1,0 +1,8 @@
+class Solution:
+    def lengthOfLastWord(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        match = re.search('(?i)\w+', s[::-1])
+        return len(match.group(0) if match is not None else '')
