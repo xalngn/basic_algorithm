@@ -1,0 +1,11 @@
+class Solution:
+    def repeatedStringMatch(self, A, B):
+        """
+        :type A: str
+        :type B: str
+        :rtype: int
+        """
+        n = (len(B) - 1) // len(A) + 1
+        s = A * n
+        return n if B in s else (n + 1 if B in s + A else -1)
+        
