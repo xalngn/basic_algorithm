@@ -1,0 +1,15 @@
+class Solution:
+    def buddyStrings(self, A, B):
+        """
+        :type A: str
+        :type B: str
+        :rtype: bool
+        """
+        if len(A) != len(B) or '' == A == B:
+            return False
+        
+        if A == B and collections.Counter(A).most_common(1)[0][1] > 1:
+            return True
+        
+        l = [[A[i], B[i]] for i in range(len(A)) if A[i] != B[i]]
+        return 2 == len(l) and l[0] == l[1][::-1]
