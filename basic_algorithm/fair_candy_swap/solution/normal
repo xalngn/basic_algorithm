@@ -1,0 +1,14 @@
+class Solution:
+    def fairCandySwap(self, A, B):
+        """
+        :type A: List[int]
+        :type B: List[int]
+        :rtype: List[int]
+        """
+        d = sum(A) - sum(B)
+        setA, setB = set(A), set(B)
+        for a in setA:
+            if (a - (d >> 1)) in setB:
+                return [a, a - (d >> 1)]
+            
+        return []
