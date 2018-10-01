@@ -1,0 +1,7 @@
+class Solution:
+    def findMaxConsecutiveOnes(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        return len(max(re.findall('1+', ''.join(str(i) for i in nums)), key = len, default = ''))
