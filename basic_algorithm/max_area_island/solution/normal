@@ -1,0 +1,18 @@
+class Solution:
+    def maxAreaOfIsland(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+        if not grid:
+            return 0
+        m, n = len(grid), len(grid[0])
+        visited = set()
+        
+        def visit(r, c):
+            if r < 0 or r >= m or c < 0 or c >= n or 0 == grid[r][c] or r * n + c in visited:
+                return 0
+            visited.add(r * n + c)
+            return 1 + visit(r - 1, c) + visit(r + 1, c) + visit(r, c - 1) + visit(r, c + 1)
+        
+        return max(visit(r, c) for c in range(n) for r in range(m))
