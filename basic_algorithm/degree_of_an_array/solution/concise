@@ -1,0 +1,10 @@
+class Solution:
+    def findShortestSubArray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        counter = collections.Counter(nums).most_common()
+        choices = list(k for (k, v) in counter if v == counter[0][1])
+        rnums = nums[::-1]
+        return 1 if 1 == counter[0][1] else min(len(rnums) - 1 - rnums.index(num) - nums.index(num) + 1 for num in choices)
