@@ -1,0 +1,21 @@
+class Solution:
+    def imageSmoother(self, M):
+        """
+        :type M: List[List[int]]
+        :rtype: List[List[int]]
+        """        
+        if not M:
+            return M
+        m, n = len(M), len(M[0])
+        res = list(list(row) for row in M)
+        for r in range(m):
+            for c in range(n):
+                neighbors = [
+                    M[i][j]
+                    for i in (r - 1, r, r + 1)
+                    for j in (c - 1, c, c + 1)
+                    if 0 <= i < m and 0 <= j < n
+                ]
+                res[r][c] = sum(neighbors) // len(neighbors)
+                
+        return res
