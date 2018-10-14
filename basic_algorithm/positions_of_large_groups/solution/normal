@@ -1,0 +1,17 @@
+class Solution:
+    def largeGroupPositions(self, S):
+        """
+        :type S: str
+        :rtype: List[List[int]]
+        """
+        ans = []
+        S = S + '#'
+        c, start = '', 0
+        for i in range(len(S)):
+            if S[i] != c:
+                if i - start >= 3:
+                    ans.append([start, i - 1])
+                c = S[i]
+                start = i
+        return ans
+        
