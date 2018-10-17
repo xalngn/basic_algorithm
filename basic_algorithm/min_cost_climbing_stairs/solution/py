@@ -1,0 +1,14 @@
+class Solution:
+    def minCostClimbingStairs(self, cost):
+        """
+        :type cost: List[int]
+        :rtype: int
+        """
+        if not cost:
+            return 0
+        if 1 == len(cost):
+            return cost[0]
+        cost1, cost2 = cost[0], cost[1]
+        for i in range(2, len(cost)):
+            cost1, cost2 = cost2, min(cost1, cost2) + cost[i]
+        return min(cost1, cost2)
